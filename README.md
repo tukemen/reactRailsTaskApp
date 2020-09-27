@@ -6,7 +6,7 @@
     * CRUDの実装
     * タスク完了ボタンの実装
 ***
-1. タスクの追加
+1. タスクの追加  
     追加ボタンを押すと  
     ![todo_app](https://user-images.githubusercontent.com/64147954/94363245-eb55eb80-00fb-11eb-9846-7d250a4be9ce.PNG)
 
