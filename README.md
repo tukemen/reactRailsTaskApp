@@ -38,3 +38,12 @@
     ![完了ボタン押した後](https://user-images.githubusercontent.com/64147954/94363457-345a6f80-00fd-11eb-8077-90c78ec5494a.PNG)
 
     
+***
+## 技術
+* React.Js  
+    * axios
+    * react-bootstrap
+    * react-addons-update
+
+* Ruby on Rails
+    
