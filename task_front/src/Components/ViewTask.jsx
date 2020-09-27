@@ -40,7 +40,6 @@ class ViewTask extends React.Component {
     }
 
     handleUpdate = () => {
-        
         this.props.onUpdate(this.props.data.id, this.state.updateText);
         this.setState({editmode: !this.state.editmode});
     }

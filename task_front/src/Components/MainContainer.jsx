@@ -19,7 +19,7 @@ class MainContainer extends React.Component {
         axios.get('http://localhost:3001/tasks')
         .then((results) => {
             console.log(results);
-            this.setState({tasks: results.data, taskIsDone: results.data});
+            this.setState({tasks: results.data});
         })
         .catch((data) => {
             console.log(data);
@@ -31,9 +31,9 @@ class MainContainer extends React.Component {
         .then((response) => {
             
             const newData = update(this.state.tasks, {$push:[response.data]})
-            const newIsDone = update(this.state.taskIsDone, {$push:[response.data]})
-            this.setState({tasks: newData, taskIsDone: newIsDone});
-           console.log(this.state.taskIsDone)
+            
+            this.setState({tasks: newData});
+          
         })
         .catch((data) => {
             console.log(data)
@@ -69,10 +69,10 @@ class MainContainer extends React.Component {
     updateIsDone = (id, isDone) => {
         axios.patch(`http://localhost:3001/tasks/${id}`,{is_done: isDone})
         .then((response) => {
-           
-            const isDoneIndex = this.state.taskIsDone.findIndex(x => x.id === id)
-            const isDones = update(this.state.taskIsDone, {[isDoneIndex]: {$set: response.data}});
-            this.setState({taskIsDone: isDones});
+           console.log(response)
+            const isDoneIndex = this.state.tasks.findIndex(x => x.id === id)
+            const isDones = update(this.state.tasks, {[isDoneIndex]: {$set: response.data}});
+            this.setState({tasks: isDones});
             console.log(this.state.taskIsDone)
         })
         .catch((data) => {
