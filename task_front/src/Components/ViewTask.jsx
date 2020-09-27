@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button,ListGroup,Row,Col,Card} from 'react-bootstrap';
 
+//編集ボタンを押した時に、タスクの内容の表示部分を編集用フォームに切り替える要素
 function Edit(props){
     if(props.editmode){
         return (
@@ -16,6 +17,7 @@ function Edit(props){
     }
 }
 
+//タスクの完了か未完了かによって表示が変わるボタン
 function CheckBtn(props){
     
         if(props.isDone){
@@ -51,9 +53,10 @@ class ViewTask extends React.Component {
     handleChange = () => {
         this.setState({editmode: !this.state.editmode});
     }
-
+    
     handleComplete = () => {
         
+        //stateがセットされてからカラムを更新したかったので同期処理に
         this.setState({isDone: !this.state.isDone},
         () =>this.props.onUpdateComp(this.props.data.id, this.state.isDone));
     }

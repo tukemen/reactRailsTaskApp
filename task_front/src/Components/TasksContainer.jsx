@@ -4,10 +4,12 @@ import {Card} from 'react-bootstrap'
 
 class TasksContainer extends React.Component{
     render(){
+        //完了ボタンが押されてないタスクを集めた配列
         let complete = this.props.taskData.filter((data) =>{
             return data.is_done === true;
         });
 
+        //完了したタスクを集めた配列
         let incomplete = this.props.taskData.filter((data) =>{
             return data.is_done === false;
         });

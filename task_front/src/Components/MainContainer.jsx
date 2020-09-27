@@ -11,7 +11,6 @@ class MainContainer extends React.Component {
         super(props);
         this.state = {
             tasks: [],
-            taskIsDone: []
         }
     }
 
@@ -59,13 +58,13 @@ class MainContainer extends React.Component {
             const taskIndex = this.state.tasks.findIndex(x => x.id === id)
             const tasks = update(this.state.tasks, {[taskIndex]: {$set: response.data}})
             this.setState({tasks: tasks});
-            console.log(this.state.tasks)
         })
         .catch((data) => {
             console.log(data);
         })
     }
-
+    
+    //tasksテーブルのis_doneカラムの変更だけを反映させたかった
     updateIsDone = (id, isDone) => {
         axios.patch(`http://localhost:3001/tasks/${id}`,{is_done: isDone})
         .then((response) => {
@@ -73,7 +72,7 @@ class MainContainer extends React.Component {
             const isDoneIndex = this.state.tasks.findIndex(x => x.id === id)
             const isDones = update(this.state.tasks, {[isDoneIndex]: {$set: response.data}});
             this.setState({tasks: isDones});
-            console.log(this.state.taskIsDone)
+            
         })
         .catch((data) => {
             console.log(data);
